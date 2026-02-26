@@ -3,21 +3,20 @@ import matplotlib.pyplot as plt
 from SRC.SOR import SORsolver
 
 def test_linear_solution():
-    solver = SORsolver(N=10, omega=1.8, tol=1e-6, max_iter=10000)
+    solver = SORsolver(N=100, omega=1.8, tol=1e-6, max_iter=10000)
+    #solver.object_mask[20:30, 20:30] = True
+    center = solver.N // 2
+    solver.object_mask[center, center] = True
     c = solver.solve(verbose=True)
-    # Check if the solution is close to zero everywhere (since boundary conditions are zero)
 
-    y = np.linspace(0, 1, solver.N)
-    analytical = y 
-
-    numerical_profile = np.mean(c, axis=0)  # Average across rows to get a profile along y
-
-    plt.plot(y, analytical, label="Analytical (c=y)")
-    plt.plot(y, numerical_profile, "--", label="Numerical (SOR)")
-    plt.xlabel("y")
-    plt.ylabel("c")
-    plt.legend()
-    plt.title("Laplace Equation Solution")
+    # Plot 2D heatmap
+    plt.figure(figsize=(6,5))
+    plt.imshow(c.T, origin="lower", cmap="viridis", vmin=0, vmax=1)
+    #plt.imshow(c.T, origin="lower", cmap="viridis", vmin=0, vmax=1, interpolation="nearest")
+    plt.colorbar(label="Concentration")
+    plt.title("Laplace with Central Square Sink")
+    plt.xlabel("x")
+    plt.ylabel("y")
     plt.show()
 
 
