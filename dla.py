@@ -55,10 +55,16 @@ class DLAsolver(SORsolver):
             return False
 
         # Use absolute value to avoid negative probabilities
-        values = np.array([
-            max(abs(c[i, j]), 1e-12) ** self.eta
-            for (i, j) in boundary
-        ])
+        values = []
+
+        for (i, j) in boundary:
+            grad = np.sqrt(
+        (c[i+1, j] - c[i-1, j])**2 +
+        (c[i, j+1] - c[i, j-1])**2
+    )
+        values.append(max(grad, 1e-12) ** self.eta)
+
+        values = np.array(values)
 
         total = values.sum()
         if total == 0:
