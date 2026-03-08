@@ -110,9 +110,11 @@ class DLAsolver(SORsolver):
 # Main
 # =====================================================
 if __name__ == "__main__":
-
+    # Set number of eta values
     etas = [0.5, 1.0, 2.0]
+    # Set grid size and number of growth steps
     N = 120
+    # Number of steps to run
     steps = 300
 
     fig, axes = plt.subplots(1, 3, figsize=(15, 5))
