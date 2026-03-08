@@ -13,6 +13,8 @@ The code is used to generate figures, and implement methods further dicussed in 
 
 -Influence of nonlinear growth parameter $\eta$
 
+-Implement Gray-Scott model in two dimensions.
+
 ## Dependencies
 
 -numpy
@@ -21,12 +23,18 @@ The code is used to generate figures, and implement methods further dicussed in 
 
 ## Usage
 
-The code can simply be run by running dla.py
+The code can simply be run by running dla.py for diffusion-limited aggregation.
 
 From the command line;
     python dla.py
 
-Shown is which eta is ran, and the current progress.
+Printed is which choise of eta is ran, and the current progress.
+
+For the Gray_Scott model one can run. Gray_scott.py.
+
+From the command line;
+    python Gray_scott.py
+
 
 ## Contributors
 
