@@ -1,6 +1,7 @@
 # Scientific Computing – Assignment Set 2
 
-This repository contains the implementation for **Assignment Set 2** of the Scientific Computing course.
+This repository contains the implementation for **Assignment Set 2** of the Scientific Computing course of the UvA (5284SCCO6Y).
+The code is used to generate figures, and implement methods further dicussed in the report. (see docs/)
 
 ## Topics Covered
 
@@ -12,7 +13,26 @@ This repository contains the implementation for **Assignment Set 2** of the Scie
 
 -Influence of nonlinear growth parameter $\eta$
 
----
+## Dependencies
 
-## Project Structure
+-numpy
+-matplotlib
+-SRC.SOR
+
+## Usage
+
+The code can simply be run by running dla.py
+
+From the command line;
+    python dla.py
+
+Shown is which eta is ran, and the current progress.
+
+## Contributors
+
+-Boyu Chen
+-IJsbrand Meeter
+-Jiawei Li
+
+
 
