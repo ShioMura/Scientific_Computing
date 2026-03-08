@@ -4,10 +4,13 @@ This repository contains the implementation for **Assignment Set 2** of the Scie
 
 ## Topics Covered
 
-- Successive Over-Relaxation (SOR) solver for Laplace equation
-- Diffusion-Limited Aggregation (DLA)
-- Monte Carlo simulation of DLA
-- Gray–Scott reaction–diffusion model
+-Successive Over-Relaxation (SOR) solver for the Laplace equation
+
+-Internal absorbing boundary (square sink)
+
+-Harmonic-measure Diffusion-Limited Aggregation (DLA)
+
+-Influence of nonlinear growth parameter $\eta$
 
 ---
 
