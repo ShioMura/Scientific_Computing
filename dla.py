@@ -21,6 +21,16 @@ class DLAsolver(SORsolver):
         self.object_mask[center, center] = True
 
     # -------------------------------------------------
+    # Run DLA simulation
+    # -------------------------------------------------
+    def run(self, steps=200):
+
+        for s in range(steps):
+            print(f"Growing particle {s+1}/{steps}")
+            if not self.grow_one_particle():
+                break
+
+     # -------------------------------------------------
     # Find sites adjacent to aggregate
     # -------------------------------------------------
     def get_boundary_sites(self):
@@ -41,16 +51,6 @@ class DLAsolver(SORsolver):
                     boundary.append((i, j))
 
         return boundary
-
-    # -------------------------------------------------
-    # Run DLA simulation
-    # -------------------------------------------------
-    def run(self, steps=200):
-
-        for s in range(steps):
-            print(f"Growing particle {s+1}/{steps}")
-            if not self.grow_one_particle():
-                break
 
     # -------------------------------------------------
     # Grow one particle using harmonic measure
@@ -92,8 +92,6 @@ class DLAsolver(SORsolver):
         self.object_mask[i, j] = True
 
         return True
-
- 
 
     # -------------------------------------------------
     # Plot aggregate
