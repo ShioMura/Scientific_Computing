@@ -43,6 +43,16 @@ class DLAsolver(SORsolver):
         return boundary
 
     # -------------------------------------------------
+    # Run DLA simulation
+    # -------------------------------------------------
+    def run(self, steps=200):
+
+        for s in range(steps):
+            print(f"Growing particle {s+1}/{steps}")
+            if not self.grow_one_particle():
+                break
+
+    # -------------------------------------------------
     # Grow one particle using harmonic measure
     # -------------------------------------------------
     def grow_one_particle(self):
@@ -83,15 +93,7 @@ class DLAsolver(SORsolver):
 
         return True
 
-    # -------------------------------------------------
-    # Run DLA simulation
-    # -------------------------------------------------
-    def run(self, steps=200):
-
-        for s in range(steps):
-            print(f"Growing particle {s+1}/{steps}")
-            if not self.grow_one_particle():
-                break
+ 
 
     # -------------------------------------------------
     # Plot aggregate
