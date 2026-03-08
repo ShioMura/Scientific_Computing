@@ -15,11 +15,11 @@ class SORsolver:
         self.object_mask = np.zeros((N, N), dtype=bool)
 
         self.c = np.zeros((N, N)) # initial guess is set to 0, and boundary condition is set to 0
-        self._apply_boundary_condition() 
+        self._apply_boundary_condition()
     def _apply_boundary_condition(self):
-        #Bottom boundary (j =0) 
+        #Bottom boundary (j =0)
         self.c[:, 0] = 0.0
-        #Top boundary (j = N-1) 
+        #Top boundary (j = N-1)
         self.c[:, -1] = 1.0
         #Left boundary (i = 0)
         self.c[0, :] = 0.0
@@ -37,12 +37,12 @@ class SORsolver:
 
                     left = (i-1) % self.N
                     right = (i+1) % self.N
-                    
+
                     old_value = self.c[i, j]
                     gs_update = 0.25 * (
-                        self.c[left, j] + 
-                        self.c[right, j] + 
-                        self.c[i, j-1] + 
+                        self.c[left, j] +
+                        self.c[right, j] +
+                        self.c[i, j-1] +
                         self.c[i, j+1]
                     )
                     new_value = (self.omega * gs_update) + ((1 - self.omega) * old_value)
