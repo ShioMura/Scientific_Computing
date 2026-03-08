@@ -33,6 +33,3 @@ Shown is which eta is ran, and the current progress.
 -Boyu Chen
 -IJsbrand Meeter
 -Jiawei Li
-
-
-

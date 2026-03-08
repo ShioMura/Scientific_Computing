@@ -58,11 +58,14 @@ class DLAsolver(SORsolver):
         values = []
 
         for (i, j) in boundary:
+            # Approximate gradient magnitude using central differences
             grad = np.sqrt(
             (c[i+1, j] - c[i-1, j])**2 +
             (c[i, j+1] - c[i, j-1])**2
-        )
-            values.append(max(grad, 1e-12) ** self.eta)
+            )
+            # Makes sure the gradient is not zero to avoid zero probabilities
+            grad = max(grad, 1e-12)
+            values.append(grad ** self.eta)
 
         values = np.array(values)
 
