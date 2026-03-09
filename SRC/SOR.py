@@ -6,7 +6,7 @@ class SORsolver:
     Boundary condition is set to 0, and initial guess is set to 1.
     '''
 
-    def __init__(self, N = 100, omega = 1.5, tol = 1e-6, max_iter = 10000):
+    def __init__(self, N = 100, omega = 1.5, tol = 1e-4, max_iter = 10000):
         self.N = N
         self.omega = omega
         self.tol = tol
@@ -53,6 +53,6 @@ class SORsolver:
                 print(f"Iteration {it+1}, max change: {delta:.6e}")
             if delta < self.tol:
                 if verbose:
-                    print(f"Convergence achieved after {it+1} iterations.")
+                    print(f"Converged in {it+1} iterations (delta = {delta:.2e})")
                 break
         return self.c
